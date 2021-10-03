@@ -1,4 +1,4 @@
-pragma solidity ^0.5.0;
+pragma solidity >=0.4.22 <0.9.0;
 
 contract DTube {
   uint public videoCount = 0;
@@ -19,7 +19,7 @@ contract DTube {
     address author
   );
 
-  constructor() public {
+  constructor() public{
   }
 
   function uploadVideo(string memory _videoHash, string memory _title) public {

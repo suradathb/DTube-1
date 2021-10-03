@@ -2,6 +2,10 @@ require('babel-register');
 require('babel-polyfill');
 require('dotenv').config();
 const HDWalletProvider = require("@truffle/hdwallet-provider")
+const providerTestnet = new HDWalletProvider({
+  privateKeys: ['b8a56e6041d2d97564fdbe342e32e8518ec1e41230d11ef3333f0bebd152a16a'],
+  providerOrUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545/'
+});
 
 module.exports = {
   networks: {
@@ -53,6 +57,15 @@ module.exports = {
       timeoutBlocks: 200,
       gas: 5000000,
       gasPrice: 25000000000
+    },
+    bsc: {
+      // production
+    },
+    binanceTestnet: {
+          provider: () => providerTestnet,
+          network_id: "97",
+          gas: 1000000,
+          skipDryRun: true,
     },
   },
   contracts_directory: './src/contracts/',
